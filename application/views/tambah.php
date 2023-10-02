@@ -82,47 +82,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to CodeIgniter!</h1>
 
 	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="userguide3/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
-
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
-
-	<div id="body">
-		<div>
-			<a href="<?php echo site_url('welcome/add/');?>">Tambah data</a>
-		</div>
-		<table border="1"  align="center">
-			<tr>
-				<td>Nama</td>
-				<td>Status</td>
-				<td>Deskripsi</td>
-				<td>Aksi</td>
-			</tr>
-			<?php foreach($data as $key ) : ?>
-				<tr>
-					<td><?php echo $key->name; ?></td>
-					<td><?php echo $key->status; ?></td>
-					<td><?php echo $key->desk; ?></td>
-					<td>
-						<a href="<?php echo site_url('welcome/edit/'.$key->id); ?>">edit</a>
-						/
-						<a href="<?php echo site_url('welcome/hapus/'.$key->id); ?>">Hapus</a>
-					</td>
-				</tr>
-			<?php endforeach; ?>
-		</table>
+		<form action="<?php echo site_url('welcome/create')?>" method="POST">
+			<label for="">Nama</label>
+			<input type="text" name="name" id="name">
+			<br>
+			<label for="">status</label>
+			<select name="status" id="status">
+				<option value="1">Aktif</option>
+				<option value="2">Non Aktif</option>
+			</select>
+			<br>
+			<label for="">desk</label>
+			<textarea name="desk" id="desk" cols="30" rows="10"></textarea>
+			<br>
+			<button type="submit">Simpan <Datag></Datag></button>
+		</form>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
