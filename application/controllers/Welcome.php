@@ -40,10 +40,30 @@ class Welcome extends CI_Controller {
 		redirect('welcome/index','refresh');
 	}
 
-	function edit($id) {
+	function edit($id = null) {
+
+		if (!isset($id)) redirect('welcome/index','refresh');
+			$data 		=	$this->TestModel;
+			$validation	=	$this->form_validation;
+			$validation->set_rules($data->rules());
+			
+			if ($validation->run()) {
+				$data->update();
+				redirect('welcome/index','refresh');
+			}
 		$arr['data'] = $this->TestModel->getById($id);
-		// echo "<pre>",print_r($arr);
-		// die();
+		if (!$arr["data"]) 
+		show_404();
 		$this->load->view('edit',$arr);
 	}
+
+	public function delete($id=null)
+    {
+        if (!isset($id)) show_404();
+        
+        if ($this->TestModel->delete($id)) {
+            redirect('welcome/index','refresh');
+        }
+    }
+	
 }

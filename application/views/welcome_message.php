@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<td>
 						<a href="<?php echo site_url('welcome/edit/'.$key->id); ?>">edit</a>
 						/
-						<a href="<?php echo site_url('welcome/hapus/'.$key->id); ?>">Hapus</a>
+						<a href="<?php echo site_url('welcome/delete/'.$key->id); ?>">Hapus</a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

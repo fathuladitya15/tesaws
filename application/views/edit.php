@@ -82,7 +82,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to CodeIgniter!</h1>
 
 	<div id="body">
-		<form action="<?php echo site_url('welcome/update')?>" method="POST">
+		<form action="" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<?php echo $data->id?>" />
 			<label for="">Nama</label>
 			<input type="text" name="name" id="name" value="<?php echo $data->name;?>">
 			<br>
